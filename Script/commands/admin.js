@@ -3,10 +3,10 @@ const fs = require("fs-extra");
 const moment = require("moment-timezone");
 
 module.exports.config = {
-    name: "admin",
+    name: "admin infu",
     version: "1.0.0",
     hasPermssion: 0,
-    credits: "Rakib-vai_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️", //don't change my credit 
+    credits: "Rakib-vai_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️", // Please don't change credits
     description: "Show Owner Info",
     commandCategory: "info",
     usages: "",
@@ -16,6 +16,7 @@ module.exports.config = {
 module.exports.run = async function({ api, event }) {
     var time = moment().tz("Asia/Dhaka").format("DD/MM/YYYY hh:mm:ss A");
 
+    // ছবি ডাউনলোড শেষ হলে কলব্যাক মেসেজ পাঠাবে
     var callback = () => api.sendMessage({
         body: `
 ┏━━━━━━━━━━━━━━━━━━━━━┓
@@ -37,7 +38,7 @@ module.exports.run = async function({ api, event }) {
         attachment: fs.createReadStream(__dirname + "/cache/profile.png")
     }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/profile.png"));
   
-    // তোমার ফেসবুক প্রোফাইল ছবি অটো ডাউনলোড করবে
+    // এখানে তোমার ফেসবুক প্রোফাইল ছবি অটো ডাউনলোড হবে
     return request(encodeURI(`https://graph.facebook.com/Rakibislam.5075/picture?width=720&height=720`))
         .pipe(fs.createWriteStream(__dirname + '/cache/profile.png'))
         .on('close', () => callback());
