@@ -1,40 +1,49 @@
-/** I am doing this coding with a lot of difficulty, please don't post it yourself¯\_(ツ)_/¯ **/
 module.exports.config = {
-  name: "islam",
-  version: "1.0.0",
-  hasPermssion: 0,
-  credits: "Islamick Chat",
-  description: "prefix VEDIO",
-  commandCategory: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
-  usages: "love10 vedio",
-  cooldowns: 5,
-  dependencies: {
-    "request":"",
-    "fs-extra":"",
-    "axios":""
-  }
+    name: "islam",
+    version: "1.0.0",
+    hasPermssion: 0,
+    credits: "Islamic Chat",
+    description: "ইসলামিক ও মোটিভেশনাল ভিডিও",
+    commandCategory: "CYBER ☪️ -BOT ⚠️ TEAM ☪️",
+    usages: "islam",
+    cooldowns: 5,
+    dependencies: {
+        "request": "",
+        "fs-extra": "",
+        "axios": ""
+    }
 };
 
-module.exports.run = async({api,event,args,client,Users,Threads,__GLOBAL,Currencies}) => {
-const axios = global.nodemodule["axios"];
-const request = global.nodemodule["request"];
-const fs = global.nodemodule["fs-extra"];
-   var hi = ["•┄┅════❁🌺❁════┅┄•\n\nআসসালামু আলাইকুম-!!🖤💫প্রিয় ভাই ও বন - তুমাদের জন্য নিয়ে আসলাম আমি ইসলামিক ভিডিও \n\n•┄┅════❁🌺❁════┅┄•"];
-  var know = hi[Math.floor(Math.random() * hi.length)];
-  var link = [
-"https://drive.google.com/uc?id=1Y5O3qRzxt-MFR4vVhz0QsMwHQmr-34iH",
-"https://drive.google.com/uc?id=1YDyNrN-rnzsboFmYm8Q5-FhzoJD9WV3O",
-"https://drive.google.com/uc?id=1XzgEzopoYBfuDzPsml5-RiRnItXVx4zW",
-"https://drive.google.com/uc?id=1YEeal83MYRI9sjHuEhJdjXZo9nVZmfHD",
-"https://drive.google.com/uc?id=1YMEDEKVXjnHE0KcCJHbcT2PSbu8uGSk4",
-"https://drive.google.com/uc?id=1YRb2k01n4rIdA9Vf69oxIOdv54JyAprD",
-"https://drive.google.com/uc?id=1YSQCTVhrHTNl6B9xSBCQ7frBJ3bp_KoA",
-"https://drive.google.com/uc?id=1Yc9Rwwdpqha1AWeEb5BXV-goFbag0441",
-"https://drive.google.com/uc?id=1YcwtkC5wRbbHsAFuEQYQuwQsH4-ZiBS8",
-"https://drive.google.com/uc?id=1YhfyPl8oGmsIAIOjWQyzQYkDdZUPSalo",
+module.exports.run = async ({ api, event, args }) => {
+    const axios = global.nodemodule["axios"];
+    const request = global.nodemodule["request"];
+    const fs = global.nodemodule["fs-extra"];
 
-];
-     var callback = () => api.sendMessage({body:` ${know} `,attachment: fs.createReadStream(__dirname + "/cache/15.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/15.mp4"));    
-      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/15.mp4")).on("close",() => callback());
-   };
- 
+    // সুন্দর ইসলামিক মেসেজ, Rakib Vai
+    var hi = [
+`🕌 আল্লাহর যিকিরে অন্তর শান্ত হয় 🌸  
+💖 কুরআন পড়, জীবন সুন্দর হবে  
+🤲 প্রতিটি দোয়া আল্লাহ কবুল করেন যদি তুমি ধৈর্য ধরো  
+🌿 হারাম থেকে বাঁচো, হালালকে আঁকড়ে ধরো  
+✨ তোমার হাসি অন্যকে অনুপ্রেরণা দিক`
+    ];
+
+    var know = hi[Math.floor(Math.random() * hi.length)];
+
+    // ভিডিও লিঙ্ক (তুমি চাইলে আরো যোগ করতে পারো)
+    var link = [
+        "https://drive.google.com/uc?id=1u0rRrXj2Xy7d7Q9W9L-mizanur1", 
+        "https://drive.google.com/uc?id=1Azharivideo2", 
+        "https://drive.google.com/uc?id=1Azharivideo3", 
+        "https://drive.google.com/uc?id=1MotivationalBangla1", 
+        "https://drive.google.com/uc?id=1MotivationalBangla2"
+    ];
+
+    var callback = () => api.sendMessage(
+        `${know}\n\n🌸 ইসলামিক ও মোটিভেশনাল ভিডিও 🌸`, 
+        event.threadID, 
+        event.messageID
+    );
+
+    return request(encodeURI(link[Math.floor(Math.random() * link.length)]))
+};
