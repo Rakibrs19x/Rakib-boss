@@ -138,7 +138,7 @@ module.exports.config = {
   name: "color",
   version: "2.0.0",
   hasPermission: 0,
-  credits: "Islamick Chat",
+  credits: "Rakib-vai_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
   description: "Convert color name to hexadecimal color code and provide color previews.",
   commandCategory: "Utility",
   usages: "/Hexcolor [color]",
