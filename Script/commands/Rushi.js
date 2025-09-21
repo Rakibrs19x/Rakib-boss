@@ -1,3 +1,5 @@
+Preview
+ @@ -1,30 +0,0 @@
 module.exports.config = {
  name: "rushia",
  version: "1.0.0",
@@ -19,12 +21,3 @@ module.exports.run = async ({ api, event }) => {
      api.sendMessage({
       attachment: fs.createReadStream(__dirname + `/cache/rushia.${ext}`)
      }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/rushia.${ext}`), event.messageID);
-   api.setMessageReaction("✅", event.messageID, (err) => {}, true);
-    };
-    request(res.data.url).pipe(fs.createWriteStream(__dirname + `/cache/rushia.${ext}`)).on("close", callback);
-   })
-      .catch(err => {
-                     api.sendMessage("there's something problem while generating photo, please try again!", event.threadID, event.messageID);
-    api.setMessageReaction("☹️", event.messageID, (err) => {}, true);
-                  })    
-}
