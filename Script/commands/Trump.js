@@ -4,7 +4,7 @@ module.exports.config = {
 
 	version: "1.0.1",
 	hasPermssion: 0,
-	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
+	credits: "Rakib-vai_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
 	description: "Comment on the board ( ͡° ͜ʖ ͡°)",
 	commandCategory: "edit-img",
 	usages: "trump [text]",
