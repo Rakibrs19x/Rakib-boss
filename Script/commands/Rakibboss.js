@@ -4,7 +4,7 @@ module.exports.config = {
   version: "1.0.1",
   hasPermssion: 0,
   credits: "Rakib-vai_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
-  description: "goibot",
+  description: "rakibboss infu",
   commandCategory: "Noprefix",
   usages: "noprefix",
   cooldowns: 5,
