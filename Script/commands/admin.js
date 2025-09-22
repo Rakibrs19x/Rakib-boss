@@ -1,12 +1,10 @@
-const request = require("request");
-const fs = require("fs-extra");
 const moment = require("moment-timezone");
 
 module.exports.config = {
-    name: "admin",
-    version: "1.0.0",
+    name: "Owner",
+    version: "1.0.1",
     hasPermssion: 0,
-    credits: "Rakib-vai_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️", // Please don't change credits
+    credits: "Rakib-vai_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
     description: "Show Owner Info",
     commandCategory: "info",
     usages: "",
@@ -14,15 +12,13 @@ module.exports.config = {
 };
 
 module.exports.run = async function({ api, event }) {
-    var time = moment().tz("Asia/Dhaka").format("DD/MM/YYYY hh:mm:ss A");
+    const time = moment().tz("Asia/Dhaka").format("DD/MM/YYYY hh:mm:ss A");
 
-    // ছবি ডাউনলোড শেষ হলে কলব্যাক মেসেজ পাঠাবে
-    var callback = () => api.sendMessage({
-        body: `
+    const message = `
 ┏━━━━━━━━━━━━━━━━━━━━━┓
 ┃      🌟 𝗢𝗪𝗡𝗘𝗥 𝗜𝗡𝗙𝗢 🌟      
 ┣━━━━━━━━━━━━━━━━━━━━━┫
-┃ 👤 𝐍𝐚𝐦𝐞      : 𝐑𝐚𝐤𝐢𝐛
+┃ 👤 𝐍𝐚𝐦𝐞      : 𝐑𝐚𝐤𝐢𝐛 Islam
 ┃ 🚹 𝐆𝐞𝐧𝐝𝐞𝐫    : 𝐌𝐚𝐥𝐞
 ┃ ❤️ 𝐑𝐞𝐥𝐚𝐭𝐢𝐨𝐧  : 𝐒𝐢𝐧𝐠𝐥𝐞
 ┃ 🎂 𝐀𝐠𝐞       : 18
@@ -34,12 +30,7 @@ module.exports.run = async function({ api, event }) {
 ┣━━━━━━━━━━━━━━━━━━━━━┫
 ┃ 🕒 𝐔𝐩𝐝𝐚𝐭𝐞𝐝 𝐓𝐢𝐦𝐞:  ${time}
 ┗━━━━━━━━━━━━━━━━━━━━━┛
-        `,
-        attachment: fs.createReadStream(__dirname + "/cache/profile.png")
-    }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/profile.png"));
-  
-    // এখানে তোমার ফেসবুক প্রোফাইল ছবি অটো ডাউনলোড হবে
-    return request(encodeURI(`https://graph.facebook.com/Rakibislam.5075/picture?width=720&height=720`))
-        .pipe(fs.createWriteStream(__dirname + '/cache/profile.png'))
-        .on('close', () => callback());
+`;
+
+    return api.sendMessage(message, event.threadID);
 };
