@@ -87,7 +87,7 @@
       "node-schedule": "^2.1.1",
       "node-schedule-tz": "^1.2.1-4",
       "node-superfetch": "^0.2.3",
-      "npm": "^9.4.2",
+      "npm": "^11.7.0",
       "npmlog": "^7.0.1",
       "openai": "^3.2.1",
       "opusscript": "0.0.8",
